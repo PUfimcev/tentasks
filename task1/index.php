@@ -1,3 +1,21 @@
 <?php
+//2. Sum of array elements
+//Write a function that takes an array of numbers as an argument and returns the sum of the elements of the array.
+//1 Example:
+//2
+//3 ar = [1,2,3]
+//4 1 + 2 + 3 = 6
+//5
+//6 Function parameters: array $array;
+//7 Returns: int;
 
-echo 'Task1';
+function sumArrayNumber(array $array): int
+{
+    return array_sum($array);
+}
+
+?>
+
+<h2>Sum of array elements</h2>
+<p><?php echo sumArrayNumber([1,2,3, 23,11])  ?></p>
+
