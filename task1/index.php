@@ -11,11 +11,13 @@
 
 function sumArrayNumber(array $array): int
 {
-    return array_sum($array);
+    return array_reduce($array, function ($carry, $item) {
+        return $carry + $item;
+    });
 }
 
 ?>
 
 <h2>Sum of array elements</h2>
-<p><?php echo sumArrayNumber([1,2,3, 23,11])  ?></p>
+<p><?php echo sumArrayNumber([1,2,3])  ?></p>
 
