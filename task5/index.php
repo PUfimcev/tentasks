@@ -21,19 +21,19 @@
 function indexOfElement(array $array): int|string
 {
     $indexElement = null;
-    $i = 1;
 
-    while ($i < count($array)) {
-        $leftSum = array_sum(array_slice($array, 0, $i));
-        $rightSum = array_sum(array_slice($array, $i + 1));
+    foreach ($array as $key => $element) {
+        $leftSum = array_sum(array_slice($array, 0, $key));
+        $rightSum = array_sum(array_slice($array, $key + 1));
         if ($leftSum === $rightSum) {
-            $indexElement = $i;
+            $indexElement = $key;
             break;
         } else {
             $indexElement = "false";
         }
-        $i++;
     }
+
+
     return $indexElement;
 }
 

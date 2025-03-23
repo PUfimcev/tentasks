@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="85f4b05f-1f60-472c-a5e2-837806102bdc" name="Changes" comment="The 1 task made">
-      <change afterPath="$PROJECT_DIR$/task5/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task5/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/task5/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/task5/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,6 +105,9 @@
       <workItem from="1742580980882" duration="16001000" />
       <workItem from="1742630929604" duration="64000" />
       <workItem from="1742631008288" duration="19194000" />
+      <workItem from="1742732060504" duration="71000" />
+      <workItem from="1742732176189" duration="27000" />
+      <workItem from="1742732218530" duration="612000" />
     </task>
     <task id="LOCAL-00001" summary="The 1 task made">
       <option name="closed" value="true" />
