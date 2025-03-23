@@ -14,19 +14,18 @@
 <!--10 Returns: int;-->
 
 <?php
-    function sum(array $array, bool $direct): int
+    function sum(array $array, bool $is_min_sum): int
     {
-        ($direct) ? sort($array) : rsort($array);
+        ($is_min_sum) ? sort($array) : rsort($array);
         return array_sum(array_slice($array, 0, 4));
     }
-    function summingMinMax(array $array, $callback): int|string
+    function summingMinMax(array $array): int|string
     {
-        if(!is_array($array)) return 'This array is not an array';
-        $min = call_user_func_array($callback, array($array, true));
-        $max = call_user_func_array($callback, array($array, false));
+        $min = sum($array, true);
+        $max = sum($array, false);
         return "$min $max";
     }
 ?>
 
 <h2>Min Max Sum</h2>
-<p><?php echo summingMinMax([1,3,5,6,7], 'sum') ?></p>
+<p><?php echo summingMinMax([1,3,5,6,7]) ?></p>
