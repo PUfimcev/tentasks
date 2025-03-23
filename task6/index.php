@@ -28,7 +28,7 @@ function recursiveDiditSum(int $number): int
     $number .= "";
     $sum = 0;
     for ($i = 0; $i < strlen($number); $i++) {
-        $sum += +$number[$i];
+        $sum += (int)$number[$i];
     }
     return recursiveDiditSum($sum);
 }
