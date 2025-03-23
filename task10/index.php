@@ -11,16 +11,14 @@
 <!--7 Return '00:01:00'.-->
 
 <?php
-    function convertTime(array $array): void
-    {
-        foreach ($array as  $value) {
+function convertTime(string $date): string
+{
+    return date('H:i:s', strtotime($date));
+}
 
-            $value = new DateTime($value)->format('H:i:s');
-            echo nl2br("$value\n");
-        }
-    }
 ?>
 
 <h2>Time Conversion</h2>
-<p><?php  convertTime(['12:01:00PM', '12:01:00AM'])  ?></p>
+<p><?php echo convertTime('12:01:00PM') ?></p>
+<p><?php echo convertTime('12:01:00AM') ?></p>
 
