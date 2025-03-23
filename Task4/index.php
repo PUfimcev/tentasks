@@ -11,14 +11,21 @@
 <!--9 Returns: array of missing numbers;-->
 
 <?php
-$arr = [7,2,5,3,5,3];
-$brr = [7,2,5,4,6,3,5,3];
+
 function missingNumbers($array1, $array2): array
 {
-    return array_diff($array1, $array2);
+    return array_filter($array1, function ($value) use ($array2) {
+        return !in_array($value, $array2);
+    });
 }
 
 ?>
 
 <h2>Missing Numbers</h2>
-<p><?php echo implode(', ',missingNumbers($brr, $arr), ) ?></p>
+<p><?php
+    $arr = [7,2,5,3,5,3];
+    $brr = [7,2,5,4,6,3,5,3];
+    foreach (missingNumbers($brr, $arr) as $number) {
+        echo "$number ";
+    }?>
+</p>
