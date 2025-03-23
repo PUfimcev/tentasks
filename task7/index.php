@@ -12,11 +12,7 @@
 <!--10 Function parameters: array $array;-->
 
 <?php
-$arr = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [9, 8, 9]
-];
+
 
 /**
  * @param array $array
@@ -25,25 +21,37 @@ $arr = [
 function sums(array $array): int
 {
     $sum = 0;
-    for ($i = 0; $i < count($array); $i++) $sum += $array[$i][$i];
+    $i = 0;
+    foreach ($array as $value) {
+        foreach ($value as $key2 => $value2) {
+            if ($key2 === $i) $sum += $value2;
+        }
+        $i++;
+    }
     return $sum;
 }
 
 /**
  * @param array $array
- * @param $cbfunc callback function
  * @return int
  */
-function diagonalDifference(array $array, $cbfunc): int
+function diagonalDifference(array $array): int
 {
-    $sum1 = call_user_func($cbfunc, $array);
-    $sum2 = call_user_func($cbfunc, array_reverse($array));
-
+    $sum1 = 0;
+    $sum2 = 0;
+    if (count($array) ** 2 + count($array) === count($array, COUNT_RECURSIVE)) {
+        $sum1 = sums($array);
+        $sum2 = sums(array_reverse($array));
+    }
     return abs($sum1 - $sum2);
 }
-
 
 ?>
 
 <h2>Diagonal Difference</h2>
-<p><?php echo diagonalDifference($arr, 'sums') ?></p>
+<p><?php $arr = [
+        [1, 2, 3],
+        [4, 5, 6],
+        [9, 8, 9]
+    ];
+    echo diagonalDifference($arr) ?></p>
