@@ -13,24 +13,29 @@
 <!--9 Returns: array of indexes;-->
 
 <?php
-function listChosenPrices(array $costs, int $amount_of_money): void
+function listChosenPrices(array $costs, int $amount_of_money): array
 {
     $definedPrices = [];
+    $i = 1;
+    foreach ($costs as $key => $cost) {
+        foreach (array_slice($costs, $i) as $key2 => $cost2) {
 
-    for ($i = 0; $i < count($costs); $i++) {
-        for ($j = $i + 1; $j < count($costs); $j++) {
-            $sum = $costs[$i] + $costs[$j];
+            $sum = $cost + $cost2;
             if ($sum === $amount_of_money) {
-                $definedPrices['index1'] = $i + 1;
-                $definedPrices['index2'] = $j + 1;
+                $definedPrices[] = $key + 1;
+                $definedPrices[] = $key2 + $i + 1;
             }
         }
+        $i++;
     }
-    print_r($definedPrices);
+    return $definedPrices;
 }
 
 ?>
 
 <h2>Ice Cream Parlor</h2>
-<p><?php print_r([1, 3, 4, 5, 6]) ?></p>
-<p><?php listChosenPrices([1, 3, 4, 5, 6], 6) ?></p>
+
+<p><?php foreach (listChosenPrices([1, 3, 4, 5, 6], 6) as $item) {
+        echo "$item </br>";
+    } ?>
+</p>
