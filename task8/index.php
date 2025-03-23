@@ -29,10 +29,11 @@ function handleArray(array $array): array
     $amountPos = 0;
     $amountNeg = 0;
     $amountZero = 0;
-    for ($i = 0; $i < count($array); $i++) {
-        if ($array[$i] > 0) $amountPos++;
-        if ($array[$i] < 0) $amountNeg++;
-        if ($array[$i] === 0) $amountZero++;
+
+    foreach ($array as $item) {
+        if ($item > 0) $amountPos++;
+        if ($item < 0) $amountNeg++;
+        if ($item === 0) $amountZero++;
     }
 
     return array(
@@ -49,9 +50,9 @@ function handleArray(array $array): array
  * @param $callback
  * @return void
  */
-function ratioProsCons(array $array, $callback): void
+function ratioProsCons(array $array): void
 {
-    list($generalAmount, $amountPos, $amountNeg, $amountZero) = call_user_func($callback, $array);
+    list($generalAmount, $amountPos, $amountNeg, $amountZero) = handleArray($array);
 
     $ratioPos = (!empty($amountPos)) ? number_format($amountPos / $generalAmount, 6) : '';
     $ratioNeg = (!empty($amountNeg)) ? number_format($amountNeg / $generalAmount, 6) : '';
@@ -64,6 +65,6 @@ function ratioProsCons(array $array, $callback): void
 ?>
 
 <h2>Plus Minus</h2>
-<p><?php ratioProsCons([1, 1, 0, -1, -1], 'handleArray') ?></p>
+<p><?php ratioProsCons([1, 1, 0, -1, -1]) ?></p>
 
 
